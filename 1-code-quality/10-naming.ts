@@ -1,4 +1,21 @@
-// Loads the user data and resets the UI
-start() {
-  ...
+in service:
+
+getUsers() {
+  return this.backend.get('/people/list');
 }
+
+getPersons() {
+  return this.backend.get('/people/list');
+}
+
+
+
+
+
+
+
+
+
+UserDTO
+
+PersonDTO
