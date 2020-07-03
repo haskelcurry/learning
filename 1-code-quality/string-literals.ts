@@ -1,0 +1,5 @@
+doSomething() {
+  if (status === 'active') {
+    ...
+  }
+}
