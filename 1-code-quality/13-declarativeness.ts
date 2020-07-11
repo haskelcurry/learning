@@ -13,4 +13,4 @@ for (let n = 0; n < list.length; n++) {
 
 
 
-// list.map(i => i < 10 ? i + 1 : i);
+// const listPlusOne = list.map(i => i < 10 ? i + 1 : i);

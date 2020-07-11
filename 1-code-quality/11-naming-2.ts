@@ -1,4 +1,6 @@
-// Loads the user data and resets the UI
-start() {
-  ...
+/**
+ * Start caching for selected tab
+ */
+public activateCaching(): void {
+  this.localStorageService.activateCaching(this.selectedTab);
 }

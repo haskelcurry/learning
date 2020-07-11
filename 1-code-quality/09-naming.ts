@@ -19,3 +19,13 @@ getPersons() {
 UserDTO
 
 PersonDTO
+
+
+
+
+
+
+
+
+// Does same thing
+// DDD

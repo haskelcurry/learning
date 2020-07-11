@@ -1,4 +1,4 @@
-let a;
-if (obj && obj.prop && obj.prop.value) {
-  a = obj.prop.value;
+let street;
+if (patient && patient.address && patient.address.street) {
+  street = obj.prop.value;
 }
