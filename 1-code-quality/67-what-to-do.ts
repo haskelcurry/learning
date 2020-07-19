@@ -11,6 +11,8 @@
 
 
 
+https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882
+https://github.com/ryanmcdermott/clean-code-javascript
 
 // FP / FRP
 https://www.youtube.com/watch?v=2CKvxbdutxg

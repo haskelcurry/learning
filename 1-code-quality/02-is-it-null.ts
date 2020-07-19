@@ -1,7 +1,4 @@
-// It grows like a snowball
-
 const id = patient.id || null;
-
 
 
 // Three variants instead of two:

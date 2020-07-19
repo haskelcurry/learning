@@ -51,3 +51,5 @@ select(action, doctor) {
 
 
 // Delayed evaluation (THUNK)
+
+// Abstract class component

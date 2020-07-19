@@ -21,3 +21,7 @@
 export class TranslateAssetsModule {
   ...
 }
+
+// Uncle Bob
+// https://github.com/ryanmcdermott/clean-code-javascript
+// picture

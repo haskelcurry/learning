@@ -35,3 +35,7 @@ const adminIds = admins.map(getId);
 
 // We use the FP techniques to improve declarativeness, readability and therefore code quality.
 // LODASH FP
+
+// Toolbelts
+
+// (how to learn Lodash?)
