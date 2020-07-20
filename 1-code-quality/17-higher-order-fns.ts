@@ -6,3 +6,11 @@ const getAge = o => o.age;
 const ages = map(getAge, users);
 
 // [30, 21];
+
+
+
+
+
+
+
+// map, filter, reduce

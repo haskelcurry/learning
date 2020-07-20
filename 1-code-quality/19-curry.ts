@@ -39,3 +39,4 @@ const adminIds = admins.map(getId);
 // Toolbelts
 
 // (how to learn Lodash?)
+// Performance?

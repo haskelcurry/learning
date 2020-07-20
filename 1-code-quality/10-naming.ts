@@ -31,4 +31,5 @@ PersonDTO
 
 
 // Ubiquitous Language of your Project
+// Glossary of Domain Terms
 // DDD
