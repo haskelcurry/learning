@@ -13,4 +13,4 @@ const ages = map(getAge, users);
 
 
 
-// map, filter, reduce
+// Map, Filter, Reduce -- main spells
