@@ -10,7 +10,7 @@ export class UserService {
 
   set loggedUser(user: UserDTO) {
     console.info('User was successfully logged: ', user);
-    console.info('%------------------------------%',);
+    console.info('%------------------------------%');
     this._loggedUser = user;
   }
 
