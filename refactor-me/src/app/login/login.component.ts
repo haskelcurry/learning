@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 import { UserService } from "./user.service";
+import * as moment from 'moment';
+
+
 
 @Component({
   selector: 'my-login',
@@ -18,6 +21,8 @@ import { UserService } from "./user.service";
     </mat-form-field>
     <button mat-button mat-raised-button (click)="onClick(username.value, password.value)">Login</button>
   `,
+
+
   styles: [`
     .mat-form-field {
       margin-right: 24px;
@@ -28,6 +33,8 @@ import { UserService } from "./user.service";
     }
   `]
 })
+
+
 export class LoginComponent implements OnInit {
   constructor(private http: HttpClient , private router: Router, private userSerivce: UserService) {}
 

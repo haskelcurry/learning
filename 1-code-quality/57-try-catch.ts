@@ -25,9 +25,9 @@ try {
 
 
 
-
 // "then" is "map"
 // Functors, Monads
+
 
 
 // https://evojam.com/technology-blog/2016/03/21/practical-intro-to-monads-in-javascript-either
