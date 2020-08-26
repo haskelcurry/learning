@@ -21,6 +21,28 @@ me.printIntroduction();
 
 
 // Or mere extend!
+
+class Animal {
+  alive = true;
+}
+
+class Insect extends Animal {
+  bites = true;
+}
+
+class Spider extends Insect {
+  legs = 8;
+}
+
+class Hero {
+  cool = true;
+}
+
+class Spiderman extends Hero, ???
+
+
+
+
 const animal = {alive: true};
 const insect = {...animal, bites: true};
 const spider = {...insect, legs: 8};
@@ -31,22 +53,22 @@ const spiderman = {...spider, ...hero};
 
 
 
-
-
-// GoF:
-// “Program to an interface, not an implementation,” and “favor object composition over class inheritance.”
-// But:
-// - Child classes code to the implementation of the parent class
-// - Class-based OOP is ALWAYS class inheritance!
-
-
-// Gorilla / Banana Problem
-// Diamond Problem
-// Fragile Base Class Problem
-// etc.
-
-
 // In short, ALL OBJECT HIERARCHIES ARE EVENTUALLY WRONG FOR NEW USE CASES.
+
+
+// Another great example:
+// https://webdriver.io/docs/pageobjects.html
+//
+// export const Page = {
+//   title: 'My Page',
+//   open: path => browser.url(path)
+// };
+
+// export const LoginPage = {
+//   ...Page,
+//   username: () => $('#username'),
+//   ...
+// };
 
 
 // https://medium.com/javascript-scene/common-misconceptions-about-inheritance-in-javascript-d5d9bab29b0a

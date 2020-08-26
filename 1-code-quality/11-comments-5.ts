@@ -29,5 +29,5 @@ this.service.getUserInfo1();
 
 
 
-// Comments are often the symptoms of bad code
+// Comments are OFTEN the symptoms of bad code
 // Use comment only as a last resort.

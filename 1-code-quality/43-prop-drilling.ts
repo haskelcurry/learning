@@ -1,3 +1,6 @@
+// Declarativeness in HTML templates
+
+
 // app.html
 <user-dashboard
   [users]="users"
@@ -52,4 +55,3 @@
 // <user-dashboard>
 
 
-// Declarativeness in HTML templates

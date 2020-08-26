@@ -1,6 +1,6 @@
 // 1. Keep components thin
 // 2. Keep components pure
-// 3. Mind the single responsibility
+// 3. Mind the Single Responsibility
 
 
 

@@ -1,14 +1,16 @@
-1. Make a Styleguide for your team
-2. Make a Glossary of Domain Terms for your team
-3. Involve entire team in Code Reviews
-4. Configure Linter and Formatter
-5. Use EditorConfig to share the coding style across different IDEs
-6. Always K.I.S.S.
-7. Know your technology
+1. Always K.I.S.S.
+2. Know your technology
+3. Be consistent
+4. Ask for a Styleguide for your team, collaborate
+5. Ask for a Glossary of Domain Terms for your team
+6. Seek involvement in Code Reviews
+7. Ask to configure Linter and Formatter
+8. Use EditorConfig to share the coding style across different IDEs
 
 
 
 
+https://www.reddit.com/r/programminghorror/comments/66klvc/this_javascript_code_powers_a_1500_user_intranet/
 
 
 https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882

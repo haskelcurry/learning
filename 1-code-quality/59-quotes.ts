@@ -7,7 +7,7 @@ const str2 = 'some text \'with escaped single quotes\'';
 const str3 = `some text 'with single quotes'`;
 
 
-// WRONG
+// OR
 import { map } from "lodash/fp";
 import { Observable } from "rxjs/Observable";
 
@@ -27,7 +27,7 @@ import { Observable } from "rxjs/Observable";
 </div>
 
 
-<!-- WRONG -->
+// OR
 
 
 <div
@@ -36,3 +36,8 @@ import { Observable } from "rxjs/Observable";
 >
 ...
 </div>
+
+
+
+
+// BE CONSISTENT

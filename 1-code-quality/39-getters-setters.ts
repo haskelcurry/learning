@@ -1,3 +1,6 @@
+// Setters are side effects
+
+
 class Component {
   @Input()
   set name(val: boolean) {
@@ -43,10 +46,3 @@ class Component {
 
 
 // Mental Noise?
-
-// Angular styleguide recommends to avoid underscore prefix for private props
-
-
-// INSTANT
-// A influences B instantly;
-// B derives from A

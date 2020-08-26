@@ -1,6 +1,8 @@
 // Classes are Mental Noise!
 // Classes vs true OOP
 // Self
+// It's OK to use them, but be aware why you do it and know alternatives.
+// Also on KE / PeeX, of course :)
 
 export class UserDTO {
   id: string;
@@ -71,3 +73,19 @@ backend.getUser().subscribe(result: UserDTO => ...);
 //   age: number;
 //   isAdmin: boolean;
 // }
+
+
+
+
+
+// GoF:
+// “Program to an interface, not an implementation,” and “favor object composition over class inheritance.”
+// But:
+// - Child classes code to the implementation of the parent class
+// - Class-based OOP is ALWAYS class inheritance!
+
+
+// Gorilla / Banana Problem
+// Diamond Problem
+// Fragile Base Class Problem
+// etc.

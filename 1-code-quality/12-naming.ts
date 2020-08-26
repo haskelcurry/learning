@@ -33,6 +33,9 @@ CustomerRecordDTO
 
 
 
+// What approach should I use out of available 3?
+// Unification
 // Ubiquitous Language of your Project
 // Glossary of Domain Terms
 // DDD
+// Don't be afraid to contact your senior staff, ask questions, propose solutions

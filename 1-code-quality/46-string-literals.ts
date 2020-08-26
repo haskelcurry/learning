@@ -3,3 +3,6 @@ doSomething() {
     ...
   }
 }
+
+
+// Also extract a constant

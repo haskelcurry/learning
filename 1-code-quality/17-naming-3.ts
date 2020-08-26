@@ -12,3 +12,6 @@ export class PatientHistoryDocumentService {
     ...
   }
 }
+
+
+// More info than needed

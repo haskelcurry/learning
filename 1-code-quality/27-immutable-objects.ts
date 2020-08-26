@@ -35,3 +35,4 @@ const copied = {...patient};
 
 
 
+// No gap between declaration and assignment

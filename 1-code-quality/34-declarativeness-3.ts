@@ -1,3 +1,6 @@
+// In RxJS / Angular
+
+
 this.httpService
   .getData()
   .subscribe(data => {
