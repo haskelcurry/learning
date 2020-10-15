@@ -1,7 +1,8 @@
-import { createModel } from './model.js';
+import { createModel } from './mvu/model.js';
+import { renderToScreen } from './mvu/render.js';
+import { input } from './mvu/input.js';
+
 import { header, content, title, usersList, button, footer } from './components.js';
-import { input } from './input.js';
-import { renderToScreen } from './render.js';
 
 const initialModel = {
   title: 'My App',
