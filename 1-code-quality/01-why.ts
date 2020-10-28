@@ -1,3 +1,8 @@
+Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
+
+Martin Fowler
+
+
 Why do I need it?
 
 https://www.nytimes.com/2017/08/25/business/volkswagen-engineer-prison-diesel-cheating.html
@@ -56,5 +61,9 @@ So, what is Code Quality? What means to write a Clean Code?
 
 
 
-// https://github.com/ryanmcdermott/clean-code-javascript
+https://github.com/ryanmcdermott/clean-code-javascript
 // picture with WTFs
+
+
+
+
