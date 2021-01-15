@@ -1,3 +1,5 @@
+// 15m on everything
+//
 // Let's take a look at another great Monad:
 // Observables are Monads
 var { fromEvent, operators, of } = rxjs;
@@ -185,4 +187,5 @@ function render(state) {
 // I don't use RxJS on my project! Ok, ok :) Let's get back to pure functions.
 // But let's implement something more serious! Like... UI framework!
 // But before that, let's talk a little bit about an OOP.
-// (Notice that we didn't use OOP so far...)
+//
+// 1h 45m

@@ -1,3 +1,4 @@
+// 15m on everything
 You must have noticed that all this time we didn't use OOP. At all.
 There was logic, some could say pretty non-trivial, interactive functionality. But no classes. How could that be?
 
@@ -158,3 +159,5 @@ const spiderman = {...spider, ...hero};
 // It's OK to use them, but be aware why you do it and know alternatives.
 // Keep in mind that modern UI libs such as React and Vue are getting rid of classes, not without a reason.
 // Let's try and write our own UI lib now.
+//
+// 2h

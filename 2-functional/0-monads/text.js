@@ -17,21 +17,6 @@ Prototype → Dojo → YUI → jQuery → ExtJS → GWT → Backbone → Knockou
 
 Now I'd like to know a little bit more about the audience. Let's have a poll now:
 
-Do you use Lodash / Underscore on your project?
-  Yes, No
-
-Do you use LodashFP, Ramda or other FP toolbelts?
-  Yes, No
-
-Do you use RxJS / Observables?
-  Yes, No
-
-Do you use Typescript?
-  Yes, No
-
-Do you know what is a pure function?
-  Yes, No
-
 // 10 min
 
 42;
