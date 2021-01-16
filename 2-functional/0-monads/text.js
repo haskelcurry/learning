@@ -180,17 +180,64 @@ var getEmailByUserId = userId => Promise
 getEmailByUserId(2).then(console.log);
 // Notice how flatMap() magically applies!
 
+// One note about partially applied functions and curry.
+// Let's imagine that we have a user list loaded from the backend:
+var getUsers = companyId => fetch(...)
+  .then(users => ...);
+// And we want to deserialize it, by converting every user record in more convenient object, leaving only what we need on frontend side:
+var getUsers = companyId => fetch(...)
+  .then(users => _.map(users, user => ({
+    id: user.id,
+    name: user.name
+  })));
+// Doesn't it look ugly and unreadable? Imagine more operators in this chain (functions in this composition), like filter:
+var getUsers = companyId => fetch(...)
+  .then(users => _.map(users, user => ({
+    id: user.id,
+    active: user.active,
+    name: user.name
+  })))
+  .then(usersVm => _.filter(usersVm, user => user.active));
+// And other operators:
+https://lodash.com/docs/4.17.15
+// The problem here is that the collection always goes first in the argument list, which makes the composition literally cumbersome. What if we could do this:
+var getUsers = companyId => fetch(...)
+  .then(map(user => ({
+    id: user.id,
+    active: user.active,
+    name: user.name
+  })))
+  .then(filter(user => user.active));
+// You can see that I kinda "pre-initialize" the functions with the handlers, and then pass the array.
+// In Javascript, functions are "first-class citizens", which means that I can do this:
+var map = handler => array => array.map(handler);
+map(x => 'A')([1, 2, 3]);
+
+var filter = handler => array => array.filter(handler);
+_.pipe(map(x => 'A'), filter(x => x === 'B'))([1, 2, 3]);
+
+var composed = _.pipe(map(x => 'A'), filter(x => x === 'B'))
+composed([1, 2, 3]);
+
+// As you can see, it improves our composing experience. This "pre-initialization" of aruments is called currying.
+// It's so common in FP world, that in some languages ALL functions are curried by default.
+// And in Javascript, there are numerous toolbelt libs that support this out of the box, such as Lodash!
+
+
 // Now, if we know that the functions that we compose are Pure, and same input will ALWAYS produce same output,
 // we can just "memoize" them: execute the calculation only once, and then reuse the results.
 // As an example, if we pretend that the user IDs will never change, we can memoize it:
 var getEmailByUserIdMemoized = _.memoize(getEmailByUserId);
 // That's how you can optimize your application instantly and out-of-the-box, if you work with Pure functions.
 
-// There is no way to get the value OUT of the wrapper
+// So! In Monads, there is no way to get the value OUT of the wrapping context.
 // We can map it, we can log it, etc. but always inside a Monad
 // And that's the whole point! It makes the developer _think_ always in terms of current context
 // Monad guarantees that it's value is isolated, immutable and safe. 
 // Side effects like errors are extracted out. It's just another context: 'there might be an error...'
 
 // With pure function composition, our app starts to resemble the beautiful mathematic equation.
+// I hope that you have this great feeling already: our code get closer and closer to mathematics.
+// Ok let's move on.
+
 // 1h 30m

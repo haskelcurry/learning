@@ -35,7 +35,7 @@ model.renderWith(view);
 input({
   click: {
     'user': id => model.update(state => {
-      state.content.users.find(u => u.id === id).selected ^= true;
+      state.users.find(u => u.id === id).selected ^= true;
       return state;
     }),
     '#apply-button': () => alert('Thank you!')
