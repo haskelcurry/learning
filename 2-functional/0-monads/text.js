@@ -261,14 +261,57 @@ const users = await getUsers();
 var getEmailByUserIdMemoized = _.memoize(getEmailByUserId);
 // That's how you can optimize your application instantly and out-of-the-box, if you work with Pure functions.
 
+// For the sake of completeness, let's talk about immutability.
+// Pure function should not mutate it's inputs, right?
+var someState = {active: false};
+var someFn = state => {
+  state.active = true;
+  // ...
+  return 42;
+};
+
+var result = someFn(someState);
+// How do you thik, is this function pure?
+
+// Another common example:
+var checked = 0;
+items.map(item => {
+  backend.check(item).then(result => {
+    if (result) {
+      checked++;
+    }
+  });
+});
+
+// Map should always return a value, and not make side effects!
+
+var checked = Promise
+  .all(items.map(backend.check))
+  .then(filter(Boolean))
+  .then(size);
+
+// So, instead of mutating objects, we could return totally new objects from our pure functions,
+// "breaking" the reference and making the external state mutation (side effect) impossible:
+var someState = {active: false};
+var someFn = state => {
+  // ...
+  return [42, {...state, active: true}];
+};
+var [result, newState] = someFn(someState);
+
+// To denote that something's not going to be mutated, we use "const" keyword.
+// Actually in daily work I use it in 90% of cases. It should be your default way to define a value.
+// Again, we need immutability only to support the function composition.
+// When I know that the function call doesn't mutate the external world, I can freely compose it with other functions.
+
 // So! In Monads, there is no way to get the value OUT of the wrapping context.
-// We can map it, we can log it, etc. but always inside a Monad
-// And that's the whole point! It makes the developer _think_ always in terms of current context
+// We can map it, we can log it, etc. but always inside a Monad's context.
+// And that's the whole point! It makes the developer _think_ always in terms of current context!
 // Monad guarantees that it's value is isolated, immutable and safe. 
 // Side effects like errors are extracted out. It's just another context: 'there might be an error...'
 
 // With pure function composition, our app starts to resemble the beautiful mathematic equation.
-// I hope that you have this great feeling already: our code get closer and closer to mathematics.
+// I hope that you have this amazing feeling already: our code get closer and closer to mathematics.
 // Ok let's move on.
 
 // 1h 30m
