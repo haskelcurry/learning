@@ -1,21 +1,21 @@
-You all know about the hype around the functional programming recently,  especially in web UI development.
-Started by React and especially Redux, popularized by enthusiasts such as Dan Abramov and others.
-In Angular they have RxJS which is FRP,  and FRP is based of course on FP.
+// You all know about the hype around the functional programming recently,  especially in web UI development.
+// Started by React and especially Redux, popularized by enthusiasts such as Dan Abramov and others.
+// In Angular we have RxJS which is FRP, and FRP is based of course on FP.
 
-Although the paradigm appeared more than 80 years ago, long before OOP that became popular in 90s because of Java.
-The topic is broad and complex, it's intermingled with mathematics, and you can go very deep in understanding it
+// Although, the paradigm appeared more than 80 years ago, long before OOP that became popular in 90s because of Java.
+// The topic is broad and complex, it's intermingled with mathematics, and you can go very deep in exploring it...
 
-Instead, I want to try out the pragmatic approach:  we'll be trying it out in practice and see how it unravels, step by step.
+// Instead, I want to try out the pragmatic approach:  we'll be trying it out in practice and see how it unravels, step by step.
 
-Before we start, let get to know each other.
+// Before we start, let get to know each other.
 
-My name is Markel, I'm an application architect in SoftServe. I work in Web UI development for over 14 years now, involving various technologies:
-Java / J2ME, GWT, Android, Flash / Flex, PHP, Scala, Clojure / Clojurescript, Hybrid mobile apps and of course JS.
+// My name is Markel, I'm an application architect in SoftServe. I've been working in Web UI development for over 14 years now, involving various technologies, such as
+// Java / J2ME, GWT, Android, Flash / Flex, PHP, Scala, Clojure / Clojurescript, Hybrid mobile apps and of course JS.
 
-In Javascript, I went all the way along with the history of SPA development trends:
-Prototype → Dojo → YUI → jQuery → ExtJS → GWT → Backbone → Knockout → Angular / React
+// In Javascript, I went all the way along with the history of SPA development trends:
+// Prototype → Dojo → YUI → jQuery → ExtJS → GWT → Backbone → Knockout → Angular / React
 
-Now I'd like to know a little bit more about the audience. Let's have a poll now:
+// Now I'd like to know a little bit more about the audience. Let's have a poll now:
 
 // 10 min
 
@@ -24,9 +24,16 @@ Now I'd like to know a little bit more about the audience. Let's have a poll now
 var half = x => x / 2;
 var plus1 = x => x + 1;
 
-https://en.wikipedia.org/wiki/Function_composition
+half(42);
+plus1(42);
+
+// (A word about var, let and const)
+
+plus1(half(42));
 
 var half_o_plus1 = x => plus1(half(x));
+
+https://en.wikipedia.org/wiki/Function_composition
 
 // (image with ovals and arrows)
 
@@ -34,14 +41,12 @@ https://en.wikipedia.org/wiki/Category_theory
 
 // (draw)
 
-If you think about it, that's what we do in programming all the time:
-There's an input, such as the function argument or user input, then some transformation, and then the output: either a return value or HTML / DOM.
-And then the cycle continues. But we always have this pattern.
+// If you think about it, that's what we do in programming all the time:
+// There's an input, such as the function argument or user input, then some transformation, and then the output: either a return value or HTML / DOM.
+// And then the cycle continues. But we always have this pattern.
 
-The "transformation" in between the input and output can be either one function, or a combination (composition) of functions.
-But for the composition to work as we expect, the functions need to to be PURE, that is, without side effects.
-
-https://en.wikipedia.org/wiki/Pure_function
+// The "transformation" in between the input and output can be either one function, or a combination (composition) of functions.
+// That's the essence of what we do in programming: we compose functions!  (draw cycle)
 
 var negate = x => -1 * x;
 var half_o_plus1_o_negate = x => negate(plus1(half(x)));
@@ -52,17 +57,23 @@ half_o_plus1_o_Negate(42);
 
 var half_o_plus1_o_negate = _.pipe(half, plus1, negate);
 
-The word "pipe" may be familiar to you. First of all, it's used in UNIX systems to compose the commands:
+// The word "pipe" may be familiar to you. First of all, it's used in UNIX systems to compose the commands:
 
 sudo iwlist wlan0 scan | grep Frequency | sort | uniq -c | sort -n
 
-Also if you use RxJS, you know that the "pipe" was made a mandatory way to compose the operators:
-(which are of course pure functions, too)
+// Also if you use RxJS, you know that the "pipe" was made a mandatory way to compose the operators:
+// (which are of course pure functions, too)
 
-RxJS pipe / lettable operators
+// RxJS pipe / lettable operators
 https://github.com/masaeedu/RxJS/blob/master/doc/lettable-operators.md
 
 // 30 min
+
+// But for the composition to work as we expect, the functions need to to be PURE, that is, without side effects.
+
+https://en.wikipedia.org/wiki/Pure_function
+
+// (all previous functions were pure)
 
 // Ok now let's move on to more serious examples.
 
@@ -105,7 +116,7 @@ https://en.wikipedia.org/wiki/Functor
 // What does the "mapping" mean?  It's a transformation of Value in certain Context.
 
 // Functor: Value + Context  (in a box). 
-// What kind of context this could be?
+// What kind of context it could be?
 // Imagine a box that has multiple sub-sections, which are numbered by index. You can map every value by function, simultaneously, and produce a new box.
 // Sounds familiar, right? It's Arrays.
 // Yes, Arrays are Functors (kinda)
@@ -135,6 +146,7 @@ var F = v => ({
 
 // 1h
 
+// Let's expand just a little bit more on this...
 // But what if I want to change the Context?
 // Monads. Are functors that can be "flatten": unwrapped from the Context (but then wrapped back into different Context).
 // I know that it's too much of boring information,  but bear with me, now it's going to get interesting.
@@ -194,21 +206,24 @@ var getUsers = companyId => fetch(...)
 var getUsers = companyId => fetch(...)
   .then(users => _.map(users, user => ({
     id: user.id,
-    active: user.active,
-    name: user.name
+    name: user.name,
+    active: user.active
   })))
   .then(usersVm => _.filter(usersVm, user => user.active));
 // And other operators:
 https://lodash.com/docs/4.17.15
 // The problem here is that the collection always goes first in the argument list, which makes the composition literally cumbersome. What if we could do this:
-var getUsers = companyId => fetch(...)
+var getUsers = companyId => fetch(`https://.../companyId`)
   .then(map(user => ({
     id: user.id,
-    active: user.active,
-    name: user.name
+    name: user.name,
+    active: user.active
   })))
   .then(filter(user => user.active));
-// You can see that I kinda "pre-initialize" the functions with the handlers, and then pass the array.
+// You can see that the users array itself disappears. I kinda "pre-initialize" the functions with the handlers, and then the array is passed implicitly.
+// I know that the server returns a list of users, and I see only what interests me: the transformation of this list, step by step, as on the conveyor belt. (show image)
+// Again, this makes the composition extremely readable and self-explanatory, as a well written prose (or even poem?)  (read it)
+// How to achieve this?
 // In Javascript, functions are "first-class citizens", which means that I can do this:
 var map = handler => array => array.map(handler);
 map(x => 'A')([1, 2, 3]);
@@ -222,8 +237,24 @@ composed([1, 2, 3]);
 // As you can see, it improves our composing experience. This "pre-initialization" of aruments is called currying.
 // It's so common in FP world, that in some languages ALL functions are curried by default.
 // And in Javascript, there are numerous toolbelt libs that support this out of the box, such as Lodash!
+// (show Lodash FP, Lodash original operators doc)
+var getUsers = companyId => fetch(`https://.../companyId`)
+  .then(map(pluck(['id', 'active', 'name'])))
+  .then(filter({active: true}));
 
 
+var deserializeUsers = map(pluck(['id', 'active', 'name']));
+var onlyActive = filter({active: true});
+var getUsers = companyId => fetch(`https://.../companyId`)
+  .then(deserializeUsers)
+  .then(onlyActive);
+
+getUsers().then(users => doSomething());
+// or
+const users = await getUsers();
+
+// Note that deserializeUsers, onlyActive are pure.
+// Let's get back to our pure functions. Apart from being easy to reason about, test and less error-prone, what else benefits do they have? It's optimization!
 // Now, if we know that the functions that we compose are Pure, and same input will ALWAYS produce same output,
 // we can just "memoize" them: execute the calculation only once, and then reuse the results.
 // As an example, if we pretend that the user IDs will never change, we can memoize it:
