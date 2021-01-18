@@ -51,8 +51,8 @@ fromEvent(document, 'mousemove')
     document.body.innerHTML = n;
   });
 
-// Let's get back to our idea Inputs -> Transformation -> Outputs.
-// If you think globally, every App Component and every UI App has one main input: User Interaction.
+// Let's get back to our idea of Inputs -> Transformation -> Outputs.
+// If you think globally, every UI App has one main input: User Interaction.
 // Mouse clicks, moves, keypresses and so on.
 // Let's say that I have an app that reacts on mouse clicks. User clicks something, the app state transforms, the HTML / DOM changes:
 // ========================================

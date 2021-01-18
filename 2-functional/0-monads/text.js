@@ -61,12 +61,6 @@ var half_o_plus1_o_negate = _.pipe(half, plus1, negate);
 
 sudo iwlist wlan0 scan | grep Frequency | sort | uniq -c | sort -n
 
-// Also if you use RxJS, you know that the "pipe" was made a mandatory way to compose the operators:
-// (which are of course pure functions, too)
-
-// RxJS pipe / lettable operators
-https://github.com/masaeedu/RxJS/blob/master/doc/lettable-operators.md
-
 // 30 min
 
 // But for the composition to work as we expect, the functions need to to be PURE, that is, without side effects.
@@ -191,6 +185,7 @@ var getEmailByUserId = userId => Promise
 
 getEmailByUserId(2).then(console.log);
 // Notice how flatMap() magically applies!
+// On tech interviews...
 
 // One note about partially applied functions and curry.
 // Let's imagine that we have a user list loaded from the backend:

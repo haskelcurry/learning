@@ -157,7 +157,11 @@ const spiderman = {...spider, ...hero};
 
 // I don't say that you shouldn't use classes.
 // It's OK to use them, but be aware why you do it and know alternatives.
-// Keep in mind that modern UI libs such as React and Vue are getting rid of classes, not without a reason.
+// Actually you can successfully combine FP and OOP in JS, as for example Angular does.
+// In other technologies, there is brilliant Scala language that uses the same approach.
+// So, there is a sweet spot between FP and OOP that can be achieved.
+//
+// Keep in mind tho, that modern UI libs such as React and Vue are getting rid of classes, not without a reason.
 // Let's try and write our own UI lib now.
 //
 // 2h
