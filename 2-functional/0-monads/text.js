@@ -235,6 +235,15 @@ var composed = _.pipe(map(x => 'A'), filter(x => x === 'B'))
 composed([1, 2, 3]);
 
 // As you can see, it improves our composing experience. This "pre-initialization" of aruments is called currying.
+// The function "waits" for all arguments to be provided:
+var sum = _.reduce((a, b) => a + b);
+sum(0, [1, 2, 3]);
+
+var sumWith42 = sum(42);
+sumWith42([1, 2, 3]);
+
+// This allows me to have even MORE control over the function composition.
+// It's also a powerful tool for making our functions reusable.
 // It's so common in FP world, that in some languages ALL functions are curried by default.
 // And in Javascript, there are numerous toolbelt libs that support this out of the box, such as Lodash!
 // (show Lodash FP, Lodash original operators doc)
