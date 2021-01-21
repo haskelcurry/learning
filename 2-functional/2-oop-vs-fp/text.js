@@ -1,17 +1,20 @@
 // 15m on everything
-You must have noticed that all this time we didn't use OOP. At all.
-There was logic, some could say pretty non-trivial, interactive functionality. But no classes. How could that be?
+//
+// You must have noticed that all this time we didn't use OOP. At all.
+// There was logic, some could say pretty non-trivial, interactive functionality. 
+// But no classes. How could that be?
 
-It looks like we can build our modern complex UI apps without OOP...  How's that possible? Why then we learn OOP in universities? Why we learn Design Patterns, OOD?
-Why not just use simple functions?
+// It looks like we can build our modern complex UI apps without OOP...  
+// How's that possible? Why then we learn OOP in universities? Why we learn Design Patterns, OOD?
+// Why not just use simple functions?
 
-The short answer is: because of unfortunate misunderstanding!
+// The short answer is: because of terrible misunderstanding!
 
 // Classes vs true OOP
 https://en.wikipedia.org/wiki/JavaScript#Creation_at_Netscape
 // Self, the true OOP with Prototypal inheritance
 
-export class UserDTO {
+class UserDTO {
   id: string;
   name: string;
   surname: string;
@@ -66,7 +69,7 @@ type UserDTO = {
   isAdmin: boolean;
 }
 
-// GoF:
+// I hope that you all have read the "Design Patterns" by GoF. There they have 2 main statements:
 // “Program to an interface, not an implementation,” and “favor object composition over class inheritance.”
 // But:
 // - Child classes code to the implementation of the parent class
@@ -74,14 +77,13 @@ type UserDTO = {
 
 
 // Gorilla / Banana Problem
-// Diamond Problem
 // Fragile Base Class Problem
 // etc.
 
 
 //=======================================
 
-// What about the inheritance? OLOO!
+// What about the inheritance in Prototypal OOP? OLOO!
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
 
 
@@ -123,7 +125,7 @@ class Hero {
 }
 
 class Spiderman extends Hero, ???
-
+// The Diamond problem ^^^
 
 
 
@@ -156,7 +158,10 @@ const spiderman = {...spider, ...hero};
 
 
 // I don't say that you shouldn't use classes.
-// It's OK to use them, but be aware why you do it and know alternatives.
+// It's OK to use them, but be aware why you do it and know your alternatives.
+// Keep it simple!
+// Think about it: do you REALLY need classes in your case?
+//
 // Actually you can successfully combine FP and OOP in JS, as for example Angular does.
 // In other technologies, there is brilliant Scala language that uses the same approach.
 // So, there is a sweet spot between FP and OOP that can be achieved.

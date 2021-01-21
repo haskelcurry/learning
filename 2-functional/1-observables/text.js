@@ -54,7 +54,8 @@ fromEvent(document, 'mousemove')
 // Let's get back to our idea of Inputs -> Transformation -> Outputs.
 // If you think globally, every UI App has one main input: User Interaction.
 // Mouse clicks, moves, keypresses and so on.
-// Let's say that I have an app that reacts on mouse clicks. User clicks something, the app state transforms, the HTML / DOM changes:
+// Let's say that I have an app that reacts on mouse clicks. 
+// User clicks something, the app state transforms, the HTML / DOM changes:
 // ========================================
 var { operators, fromEvent } = rxjs;
 var { map } = operators;
@@ -188,4 +189,4 @@ function render(state) {
 // But let's implement something more serious! Like... UI framework!
 // But before that, let's talk a little bit about an OOP.
 //
-// 1h 45m
+// 1h 45m - 2h

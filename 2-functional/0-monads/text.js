@@ -1,21 +1,26 @@
+// Hello everybody and welcome to my introductionary training dedicated to FP.
+//
 // You all know about the hype around the functional programming recently,  especially in web UI development.
 // Started by React and especially Redux, popularized by enthusiasts such as Dan Abramov and others.
 // In Angular we have RxJS which is FRP, and FRP is based of course on FP.
+// In Vue, we have functional components. And so on.
 
-// Although, the paradigm appeared more than 80 years ago, long before OOP that became popular in 90s because of Java.
-// The topic is broad and complex, it's intermingled with mathematics, and you can go very deep in exploring it...
+// Actually, the paradigm appeared more than 80 years ago, long before OOP and even computers existed.
+// The topic is broad and complex, it's intermingled with mathematics, and you can go very deep exploring it...
 
-// Instead, I want to try out the pragmatic approach:  we'll be trying it out in practice and see how it unravels, step by step.
-
+// But today I want to provide you with a solid foundation to get started. 
+// Knowing this, you'll understand everything else, and will be able 
+//
 // Before we start, let get to know each other.
 
-// My name is Markel, I'm an application architect in SoftServe. I've been working in Web UI development for over 14 years now, involving various technologies, such as
+// My name is Markel, I'm an application architect in SoftServe. 
+// I've been working in Web UI development for over 14 years now, involving various technologies, such as
 // Java / J2ME, GWT, Android, Flash / Flex, PHP, Scala, Clojure / Clojurescript, Hybrid mobile apps and of course JS.
 
 // In Javascript, I went all the way along with the history of SPA development trends:
 // Prototype → Dojo → YUI → jQuery → ExtJS → GWT → Backbone → Knockout → Angular / React
 
-// Now I'd like to know a little bit more about the audience. Let's have a poll now:
+// Now I'd like to know a little bit more about the audience. I've prepared the poll...
 
 // 10 min
 
@@ -42,11 +47,13 @@ https://en.wikipedia.org/wiki/Category_theory
 // (draw)
 
 // If you think about it, that's what we do in programming all the time:
-// There's an input, such as the function argument or user input, then some transformation, and then the output: either a return value or HTML / DOM.
+// There's an input, such as the function argument or user input, then some transformation, and then the output: 
+// either a return value or HTML / DOM.
 // And then the cycle continues. But we always have this pattern.
 
-// The "transformation" in between the input and output can be either one function, or a combination (composition) of functions.
-// That's the essence of what we do in programming: we compose functions!  (draw cycle)
+// The "transformation" in between the input and output can be either one function, 
+// or a combination (composition) of functions.
+// That's the essence of what we do in programming / software development: we compose functions!  (draw cycle)
 
 var negate = x => -1 * x;
 var half_o_plus1_o_negate = x => negate(plus1(half(x)));
@@ -106,12 +113,19 @@ _.pipe(getUrl, httpGet(response => ...)); // but the chain breaks here. You can'
 
 // Smart guys who invented FP almost a century ago thought about this.  They said: let's add a notion of the Context.
 // The Value is not just a Value, it's always in certain Context.
+https://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html
+// (scroll down)
+// We have a Value in a Box, perfectly safe. Then if we want to do something with it (transform it), we open the Box,
+// apply the function, and close the result in another Box of same kind.
+// We call it "mapping": to "map" the Value.
+// And the Values with Contexts, that can be mapped over, are called Functors:
 https://en.wikipedia.org/wiki/Functor
-// What does the "mapping" mean?  It's a transformation of Value in certain Context.
 
-// Functor: Value + Context  (in a box). 
-// What kind of context it could be?
-// Imagine a box that has multiple sub-sections, which are numbered by index. You can map every value by function, simultaneously, and produce a new box.
+// Functor: Value + Context  (in a Box). 
+// What kind of Context it could be?
+// What kind of Boxes we can think of?
+// Imagine a box that has multiple sub-sections, which are numbered by index. You can map every value by function, 
+// simultaneously, and produce a new Box of same kind.
 // Sounds familiar, right? It's Arrays.
 // Yes, Arrays are Functors (kinda)
 https://adit.io/posts/2013-04-17-functors,_applicatives,_and_monads_in_pictures.html
@@ -132,7 +146,8 @@ var F = v => ({
 });
 
 (42).map(x => x);
-// Note that it's "closed" in it's context. I can't get the value out directly, I can only map (and it makes sense, because the Value is always in certain Context).
+// Note that it's "closed" in it's context. I can't get the value out directly, I can only map (and it makes sense, 
+// because the Value is always in certain Context).
 
 (42)
   .map(x => x)
@@ -142,10 +157,13 @@ var F = v => ({
 
 // Let's expand just a little bit more on this...
 // But what if I want to change the Context?
-// Monads. Are functors that can be "flatten": unwrapped from the Context (but then wrapped back into different Context).
+// I want to open the Box, get the value out, transform it, but then take ANOTHER kind of box and put it there.
+// This can be done with Monads. Monads are Functors that can be "flatten": unwrapped from the Context 
+// (but then wrapped back into different Context).
+// This operation is called "flatMap": "flatten" and then "map".
 // I know that it's too much of boring information,  but bear with me, now it's going to get interesting.
 
-// Our own Monad!
+// Let's make our own Monad to illustrate the idea!
 var M = v => ({
   map: fn => M(fn(v)),
   flatMap: fn => fn(v)
@@ -167,7 +185,8 @@ M(42)
 // Map and FlatMap give us the power to compose functions that operate on values in different contexts!
 // We can compose functions to transform the Values in different Contexts
 
-// Let's take a look at another useful Monad: a Promise. What's the Context here? The value is not accessible right away, but will be available in the future.
+// Let's take a look at another useful Monad: a Promise. What's the Context here? 
+// The value is not accessible right away, but will be available in the future.
 // That's why in some other languages the Promises are called Futures.
 // Let's get back to our example with the email, and see how the Promise Monad can help us there:
 var getUrl = userId => `https://reqres.in/api/users/${userId}`;
@@ -191,13 +210,15 @@ getEmailByUserId(2).then(console.log);
 // Let's imagine that we have a user list loaded from the backend:
 var getUsers = companyId => fetch(...)
   .then(users => ...);
-// And we want to deserialize it, by converting every user record in more convenient object, leaving only what we need on frontend side:
+// And we want to deserialize it, by converting every user record in more convenient object, 
+// leaving only what we need on frontend side:
 var getUsers = companyId => fetch(...)
   .then(users => _.map(users, user => ({
     id: user.id,
     name: user.name
   })));
-// Doesn't it look ugly and unreadable? Imagine more operators in this chain (functions in this composition), like filter:
+// Doesn't it look ugly and unreadable? 
+// Imagine more operators in this chain (functions in this composition), like filter:
 var getUsers = companyId => fetch(...)
   .then(users => _.map(users, user => ({
     id: user.id,
@@ -207,7 +228,8 @@ var getUsers = companyId => fetch(...)
   .then(usersVm => _.filter(usersVm, user => user.active));
 // And other operators:
 https://lodash.com/docs/4.17.15
-// The problem here is that the collection always goes first in the argument list, which makes the composition literally cumbersome. What if we could do this:
+// The problem here is that the collection always goes first in the argument list, 
+// which makes the composition literally cumbersome. What if we could do this:
 var getUsers = companyId => fetch(`https://.../companyId`)
   .then(map(user => ({
     id: user.id,
@@ -215,9 +237,12 @@ var getUsers = companyId => fetch(`https://.../companyId`)
     active: user.active
   })))
   .then(filter(user => user.active));
-// You can see that the users array itself disappears. I kinda "pre-initialize" the functions with the handlers, and then the array is passed implicitly.
-// I know that the server returns a list of users, and I see only what interests me: the transformation of this list, step by step, as on the conveyor belt. (show image)
-// Again, this makes the composition extremely readable and self-explanatory, as a well written prose (or even poem?)  (read it)
+// You can see that the users array itself disappears. I kinda "pre-initialize" the functions with the handlers, 
+// and then the array is passed implicitly.
+// I know that the server returns a list of users, and I see only what interests me: 
+// the transformation of this list, step by step, as on the conveyor belt. (show image)
+// Again, this makes the composition extremely readable and self-explanatory, 
+// as a well written prose (or even poem?)  (read it)
 // How to achieve this?
 // In Javascript, functions are "first-class citizens", which means that I can do this:
 var map = handler => array => array.map(handler);
@@ -258,7 +283,8 @@ getUsers().then(users => doSomething());
 const users = await getUsers();
 
 // Note that deserializeUsers, onlyActive are pure.
-// Let's get back to our pure functions. Apart from being easy to reason about, test and less error-prone, what else benefits do they have? It's optimization!
+// Let's get back to our pure functions. Apart from being easy to reason about, test and less error-prone, 
+// what else benefits do they have? It's optimization!
 // Now, if we know that the functions that we compose are Pure, and same input will ALWAYS produce same output,
 // we can just "memoize" them: execute the calculation only once, and then reuse the results.
 // As an example, if we pretend that the user IDs will never change, we can memoize it:
