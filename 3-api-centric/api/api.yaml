@@ -5,19 +5,87 @@ info:
   title: "Example API"
   termsOfService: "http://gat.confluence.cgm.ag"
   contact:
-    email: "chris.lohl@cgm.com"
+    email: "markel.tuzinskiy@gmail.com"
   license:
     name: "LSC"
 servers:
   - url: "my.server/api"
 tags:
-  - name: "user"
+  - name: "users"
     description: "User-related stuff"
 paths:
-  $ref: "user/paths.yaml"
+  /users:
+    get:
+      tags:
+        - "user"
+      operationId: "getUsers"
+      description: "Get all users"
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+  /users/{id}:
+    get:
+      tags:
+        - "user"
+      operationId: "getUserData"
+      description: "Get user data by ID"
+      parameters:
+        - name: id
+          in: path
+          description: ID of user to fetch
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        200:
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
 components:
   schemas:
     User:
-      $ref: "user/user.yaml#/User"
+      description: User
+      type: object
+      properties:
+        id:
+          type: integer
+          minimum: 0
+        name:
+          $ref: "#/components/schemas/UserName"
+        photo:
+          type: string
+          x-faker: image.imageUrl
+        address:
+          type: string
+          x-faker: address.streetName
+        address2:
+          type: string
+          x-faker: address.streetAddress
+        city:
+          type: string
+          x-faker: address.city
+        state:
+          type: string
+          x-faker: address.state
+        zip:
+          type: string
+          x-faker: address.zipCode
     UserName:
-      $ref: "user/name.yaml#/UserName"
+      description: UserName
+      type: object
+      properties:
+        firstName:
+          type: string
+          x-faker: name.firstName
+        lastName:
+          type: string
+          x-faker: name.lastName
