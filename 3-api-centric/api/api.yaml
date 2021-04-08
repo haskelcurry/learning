@@ -1,0 +1,23 @@
+openapi: "3.0.0"
+info:
+  description: "Example API"
+  version: "1.0.0"
+  title: "Example API"
+  termsOfService: "http://gat.confluence.cgm.ag"
+  contact:
+    email: "chris.lohl@cgm.com"
+  license:
+    name: "LSC"
+servers:
+  - url: "my.server/api"
+tags:
+  - name: "user"
+    description: "User-related stuff"
+paths:
+  $ref: "user/paths.yaml"
+components:
+  schemas:
+    User:
+      $ref: "user/user.yaml#/User"
+    UserName:
+      $ref: "user/name.yaml#/UserName"

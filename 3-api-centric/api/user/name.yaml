@@ -1,0 +1,10 @@
+UserName:
+  description: UserName
+  type: object
+  properties:
+    firstName:
+      type: string
+      x-faker: name.firstName
+    lastName:
+      type: string
+      x-faker: name.lastName
