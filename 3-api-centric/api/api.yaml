@@ -24,7 +24,7 @@ paths:
         200:
           description: "OK"
           content:
-            application/json:
+            application/json; charset=utf-8:
               schema:
                 type: array
                 items:
@@ -40,6 +40,7 @@ paths:
           in: path
           description: ID of user to fetch
           required: true
+          example: 1
           schema:
             type: integer
             format: int64
@@ -47,7 +48,7 @@ paths:
         200:
           description: "OK"
           content:
-            application/json:
+            application/json; charset=utf-8:
               schema:
                 $ref: "#/components/schemas/User"
 components:
@@ -63,7 +64,7 @@ components:
           $ref: "#/components/schemas/UserName"
         photo:
           type: string
-          x-faker: image.imageUrl
+          x-faker: image.avatar
         address:
           type: string
           x-faker: address.streetName
