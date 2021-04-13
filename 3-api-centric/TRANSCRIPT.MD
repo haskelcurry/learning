@@ -105,3 +105,17 @@ Let's have an example. I have a project here...
 - replacability
 - mobility
 - organic documentation
+
+Is this organic? What does "organic" mean?
+What do we actually MEAN when say "organic"?
+It's when there are no separate "parts", but all structure grows simultaneously.
+Take a human body as an example. It's not like our arm grows first, then brain, then legs, etc. It all develops simultaneously.
+Stories in Agile methodology are also "growing simultaneously" of the product: BA, BE, FE, QA, CI... API DOC!
+See, you WANT the API documentation to be a part of the story now, because it HELPS you.
+
+So, how can you introduce this approach on an existing project?
+Of course there is no need to cover ALL existing API with the documentation right away -- this will be opposite to organic, right?
+Just talk to your team, add the tools, and then do it for your next story, and every subsequent story. If you need something from the API -- write a doc for it. Why not? Don't force yourself.
+And then you'll see that very quickly the project gets covered with bullet-proof API docs.
+
+Big enterprise projects would benefit from it the most. Because nobody remembers what the devs did 5 years ago and how to use it. But the small projects too! Just give it a try.
