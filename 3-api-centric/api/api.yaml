@@ -14,79 +14,10 @@ tags:
   - name: "users"
     description: "User-related stuff"
 paths:
-  /users:
-    get:
-      tags:
-        - "user"
-      operationId: "getUsers"
-      description: "Get all users"
-      responses:
-        200:
-          description: "OK"
-          content:
-            application/json; charset=utf-8:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/User"
-  /users/{id}:
-    get:
-      tags:
-        - "user"
-      operationId: "getUserData"
-      description: "Get user data by ID"
-      parameters:
-        - name: id
-          in: path
-          description: ID of user to fetch
-          required: true
-          example: 1
-          schema:
-            type: integer
-            format: int64
-      responses:
-        200:
-          description: "OK"
-          content:
-            application/json; charset=utf-8:
-              schema:
-                $ref: "#/components/schemas/User"
+  $ref: "users/paths.yaml"
 components:
   schemas:
     User:
-      description: User
-      type: object
-      properties:
-        id:
-          type: integer
-          minimum: 0
-        name:
-          $ref: "#/components/schemas/UserName"
-        photo:
-          type: string
-          x-faker: image.avatar
-        address:
-          type: string
-          x-faker: address.streetName
-        address2:
-          type: string
-          x-faker: address.streetAddress
-        city:
-          type: string
-          x-faker: address.city
-        state:
-          type: string
-          x-faker: address.state
-        zip:
-          type: string
-          x-faker: address.zipCode
+      $ref: "users/user.yaml"
     UserName:
-      description: UserName
-      type: object
-      properties:
-        firstName:
-          type: string
-          x-faker: name.firstName
-        lastName:
-          type: string
-          x-faker: name.lastName
+      $ref: "users/name.yaml"

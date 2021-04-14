@@ -110,8 +110,9 @@ Is this organic? What does "organic" mean?
 What do we actually MEAN when say "organic"?
 It's when there are no separate "parts", but all structure grows simultaneously.
 Take a human body as an example. It's not like our arm grows first, then brain, then legs, etc. It all develops simultaneously.
+It's not like your project grows first, and then the documentation.
 Stories in Agile methodology are also "growing simultaneously" of the product: BA, BE, FE, QA, CI... API DOC!
-See, you WANT the API documentation to be a part of the story now, because it HELPS you.
+See, you WANT the API documentation to be a part of every story now, because it HELPS you.
 
 So, how can you introduce this approach on an existing project?
 Of course there is no need to cover ALL existing API with the documentation right away -- this will be opposite to organic, right?

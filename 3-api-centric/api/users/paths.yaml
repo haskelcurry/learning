@@ -1,0 +1,37 @@
+/users:
+  get:
+    tags:
+      - "users"
+    operationId: "getUsers"
+    description: "Get all users"
+    responses:
+      200:
+        description: "OK"
+        content:
+          application/json; charset=utf-8:
+            schema:
+              type: array
+              items:
+                $ref: "user.yaml"
+/users/{id}:
+  get:
+    tags:
+      - "users"
+    operationId: "getUserData"
+    description: "Get user data by ID"
+    parameters:
+      - name: id
+        in: path
+        description: ID of user to fetch
+        required: true
+        example: 1
+        schema:
+          type: integer
+          format: int64
+    responses:
+      200:
+        description: "OK"
+        content:
+          application/json; charset=utf-8:
+            schema:
+              $ref: "user.yaml"
