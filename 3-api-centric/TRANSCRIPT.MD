@@ -114,9 +114,15 @@ It's not like your project grows first, and then the documentation.
 Stories in Agile methodology are also "growing simultaneously" of the product: BA, BE, FE, QA, CI... API DOC!
 See, you WANT the API documentation to be a part of every story now, because it HELPS you.
 
-So, how can you introduce this approach on an existing project?
-Of course there is no need to cover ALL existing API with the documentation right away -- this will be opposite to organic, right?
-Just talk to your team, add the tools, and then do it for your next story, and every subsequent story. If you need something from the API -- write a doc for it. Why not? Don't force yourself.
+I hear you saying "Yes, cool, but my project has SO HUGE API now... I'm gonna try that out on my next project... maybe".
+Well the good news are that you can actually use it on your CURRENT project in no time, starting tomorrow.
+There is no need to cover ALL existing API with the documentation right away -- this will be opposite to organic, right?
+Just talk to your team, add the tools (I'll provide you a blueprint), and then do it for your next story, and every subsequent story. 
+If you need something from the API -- write a doc for it. Step by step. Don't force yourself.
 And then you'll see that very quickly the project gets covered with bullet-proof API docs.
+And perhaps also you'll start to notice obsolete places in your API, that could be cleaned up.
+Well, and other subjects for improvement in your API.
 
 Big enterprise projects would benefit from it the most. Because nobody remembers what the devs did 5 years ago and how to use it. But the small projects too! Just give it a try.
+
+~ Questions ~
