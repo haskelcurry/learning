@@ -22,7 +22,7 @@
     parameters:
       - name: id
         in: path
-        description: ID of user to fetch
+        description: "ID of user to fetch"
         required: true
         example: 1
         schema:
