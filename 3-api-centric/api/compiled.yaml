@@ -87,9 +87,6 @@ components:
         firstName:
           type: string
           x-faker: name.firstName
-        middleName:
-          type: string
-          x-faker: name.firstName
         lastName:
           type: string
           x-faker: name.lastName
