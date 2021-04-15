@@ -118,6 +118,7 @@ I hear you saying "Yes, cool, but my project has SO HUGE API now... I'm gonna tr
 Well the good news are that you can actually use it on your CURRENT project in no time, starting tomorrow.
 There is no need to cover ALL existing API with the documentation right away -- this will be opposite to organic, right?
 Just talk to your team, add the tools (I'll provide you a blueprint), and then do it for your next story, and every subsequent story. 
+(show prism proxy)
 If you need something from the API -- write a doc for it. Step by step. Don't force yourself.
 And then you'll see that very quickly the project gets covered with bullet-proof API docs.
 And perhaps also you'll start to notice obsolete places in your API, that could be cleaned up.
