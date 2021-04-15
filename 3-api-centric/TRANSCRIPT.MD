@@ -43,8 +43,16 @@ Actually, we can have multiple FEs that consume one BE API: desktop, mobile and 
 So... your FE is abstract, replaceble. Unreal!
 
 Now,  the BE could also be replaced -- and it happens quite often too -- on different tech stack: C++, miscroservices, serverless cloud something something. 
-You, as a FE dev, wouldn't care. 
-You wouldn't even know about that, as the API stays the same!
+The BE makes sense only in terms of the API,  it's like the closed box with the control panel on top, which is the API. No control panel -- the box is useless.
+No API -- the backend is a black box.
+
+If a tree falls in a forest and no one is around to hear it, does it make a sound?
+If a backend exists somewhere without the ability to reach out to it, does it make a sense?
+
+So, the BE makes sense only in terms of the API.
+
+And if the BE is replaced, as the API stays absolutely the same, you as a FE dev wouldn't care. 
+You wouldn't even know about that!
 So, the BE is also a ghost. Today Java is popular, tomorrow it's long gone.
 
 So, FE is abstract, BE is abstract, but the API IS REAL.
