@@ -1,0 +1,13 @@
+<edit-user-form [user]="user" (onChange)="onFormChange($event)">
+</edit-user-form>
+<button mat-stroked-button (click)="back()">
+  Back
+</button>
+<button
+  *ngIf="!creating"
+  mat-raised-button
+  color="primary"
+  (click)="openChat()"
+>
+  Open Chat
+</button>

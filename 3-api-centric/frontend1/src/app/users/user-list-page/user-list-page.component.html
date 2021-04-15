@@ -1,0 +1,14 @@
+<mat-list>
+  <h3 mat-subheader>User List</h3>
+  <user-list-item
+    *ngFor="let user of users$ | async"
+    [routerLink]="'/users/edit/' + user.id"
+    [user]="user"
+  >
+  </user-list-item>
+</mat-list>
+<p>
+  <button mat-raised-button routerLink="/users/create">
+    Create User
+  </button>
+</p>

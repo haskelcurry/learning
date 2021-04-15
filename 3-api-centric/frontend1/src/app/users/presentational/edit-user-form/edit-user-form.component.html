@@ -1,0 +1,46 @@
+<form *ngIf="formGroup" class="users-form" [formGroup]="formGroup">
+  <mat-form-field class="full-width">
+    <input matInput placeholder="Company (disabled)" disabled value="SoftServe" />
+  </mat-form-field>
+
+  <name-input formControlName="name"></name-input>
+
+  <p>
+    <mat-form-field class="full-width">
+      <textarea matInput placeholder="Address" formControlName="address">
+      </textarea>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <textarea matInput placeholder="Address 2" formControlName="address2">
+      </textarea>
+    </mat-form-field>
+  </p>
+
+  <table class="full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="City" formControlName="city" />
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="State" formControlName="state" />
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="full-width">
+          <input
+            class="zip"
+            matInput
+            #postalCode
+            maxlength="5"
+            placeholder="Postal Code"
+            formControlName="zip"
+          />
+          <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+</form>

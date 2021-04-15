@@ -1,0 +1,63 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "compile-api": "swagger-cli bundle ../api/api.yaml --outfile ../api/compiled.yaml --type yaml",
+    "gen-api": "node --no-deprecation ./node_modules/.bin/ng-openapi-gen -i ../api/compiled.yaml -o ./src/app/api --serviceSuffix BackendService --modelSuffix DTO",
+    "test-api": "yarn compile-api && dredd ../api/compiled.yaml http://localhost:3000 --loglevel=error",
+    "visualize-api": "yarn compile-api && swagger-ui ../api/compiled.yaml", 
+    "dev": "yarn gen-api && ng serve --open --configuration=dev",
+    "dev-mock": "yarn compile-api && prism mock -d ../api/compiled.yaml & yarn gen-api && ng serve --open --configuration=dev-mock",
+    "dev-proxy": "yarn compile-api && prism proxy ../api/compiled.yaml http://localhost:3000 --errors & yarn gen-api && ng serve --open --configuration=dev-mock",
+    "build": "yarn compile-api && yarn gen-api && ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "start": ""
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~11.1.1",
+    "@angular/cdk": "~11.1.1",
+    "@angular/common": "~11.1.1",
+    "@angular/compiler": "~11.1.1",
+    "@angular/core": "~11.1.1",
+    "@angular/forms": "~11.1.1",
+    "@angular/material": "~11.1.1",
+    "@angular/platform-browser": "~11.1.1",
+    "@angular/platform-browser-dynamic": "~11.1.1",
+    "@angular/router": "~11.1.1",
+    "material-design-icons": "^3.0.1",
+    "ng-openapi-gen": "^0.17.0",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.0.0",
+    "zone.js": "~0.11.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.1101.2",
+    "@angular/cli": "~11.1.2",
+    "@angular/compiler-cli": "~11.1.1",
+    "@stoplight/prism-cli": "^4.1.2",
+    "@types/jasmine": "~3.6.0",
+    "@types/node": "^12.11.1",
+    "codelyzer": "^6.0.0",
+    "dredd": "^14.0.0",
+    "jasmine-core": "~3.6.0",
+    "jasmine-spec-reporter": "~5.0.0",
+    "karma": "~5.2.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "^1.5.0",
+    "protractor": "~7.0.0",
+    "swagger-cli": "^4.0.4",
+    "swagger-ui-cli": "^0.8.0",
+    "ts-node": "~8.3.0",
+    "tslint": "~6.1.0",
+    "typescript": "~4.1.2"
+  },
+  "resolutions": {
+    "faker": "^5.5.2"
+  }
+}

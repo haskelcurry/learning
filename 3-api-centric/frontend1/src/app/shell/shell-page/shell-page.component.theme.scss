@@ -1,0 +1,21 @@
+@import '~@angular/material/theming';
+
+@mixin shell-theme($app-theme) {
+  $primary: map-get($app-theme, primary);
+
+  shell {
+    .shell-nav {
+      background-color: mat-color($primary);
+    }
+
+    .shell-nav-item {
+      color: mat-color($primary, '300-contrast');
+
+      &:hover,
+      &.active {
+        background-color: mat-color($primary, '300-contrast');
+        color: mat-color($primary);
+      }
+    }
+  }
+}

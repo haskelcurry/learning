@@ -1,0 +1,19 @@
+<mat-form-field>
+  <mat-label>
+    Enter message
+  </mat-label>
+  <textarea
+    matInput
+    cdkTextareaAutosize
+    [value]="message"
+    (keyup)="message = $event.target.value; onChange.emit(message)"
+  >
+  </textarea>
+</mat-form-field>
+<br />
+<button mat-raised-button color="primary" (click)="onSend.emit(message)">
+  Send
+</button>
+<button mat-raised-button (click)="onClose.emit()">
+  Close
+</button>

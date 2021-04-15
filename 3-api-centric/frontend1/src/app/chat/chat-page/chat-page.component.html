@@ -1,0 +1,13 @@
+<mat-tab-group
+  *ngIf="state.value.chats.length"
+  [selectedIndex]="state.value.selectedIndex"
+  (selectedIndexChange)="state.setValue({ selectedIndex: $event })"
+>
+  <mat-tab *ngFor="let username of state.value.chats" [label]="username">
+    <chat (onSend)="send($event)" (onClose)="close(username)">
+    </chat>
+  </mat-tab>
+</mat-tab-group>
+<div *ngIf="!state.value.chats.length">
+  No active chats
+</div>

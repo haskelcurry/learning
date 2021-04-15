@@ -1,0 +1,45 @@
+.shell-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.shell-viewport {
+  padding: 30px;
+}
+
+mat-sidenav-content {
+  height: calc(100% - 60px);
+}
+
+.shell-nav {
+  width: 120px;
+  border-right: none;
+  box-shadow: 6px 0px 16px #ddd;
+}
+
+.shell-nav-item {
+  display: block;
+  background: transparent;
+  border-radius: 0;
+  width: 100%;
+}
+
+.nav-logo {
+  text-align: center;
+  padding: 27px 0 26px;
+
+  img {
+    width: 56px;
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  padding: 16px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54);
+}

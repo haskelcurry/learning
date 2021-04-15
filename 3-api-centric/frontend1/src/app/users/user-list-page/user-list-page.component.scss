@@ -1,0 +1,9 @@
+:host {
+  height: 100%;
+  display: block;
+}
+
+.mat-list {
+  height: calc(100% - 100px);
+  overflow: auto;
+}

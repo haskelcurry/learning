@@ -1,0 +1,25 @@
+<mat-sidenav-container class="shell-container" autosize>
+  <mat-sidenav class="shell-nav" mode="side" opened>
+    <div class="nav-logo">
+      <img src="assets/logo.svg" />
+    </div>
+    <button
+      *ngFor="let item of navItems"
+      mat-button
+      class="shell-nav-item"
+      [routerLink]="'/' + item.path"
+      routerLinkActive="active"
+    >
+      <mat-icon>
+        {{ item.icon }}
+      </mat-icon>
+      <div class="nav-label">
+        {{ item.label }}
+      </div>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content class="shell-viewport">
+    <router-outlet></router-outlet>
+    <footer>Frontend (c) 2021</footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

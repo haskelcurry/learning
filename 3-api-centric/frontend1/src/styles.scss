@@ -1,0 +1,23 @@
+@import '~@angular/material/theming';
+@import 'app/shell/shell-page/shell-page.component.theme.scss';
+
+@include mat-core();
+
+$app-theme-primary: mat-palette($mat-indigo);
+$app-theme-accent: mat-palette($mat-indigo);
+$app-theme-warn: mat-palette($mat-indigo);
+
+$app-theme: mat-light-theme(
+  $app-theme-primary,
+  $app-theme-accent,
+  $app-theme-warn
+);
+
+@mixin component-themes($g3-md-theme) {
+  @include shell-theme($g3-md-theme);
+}
+
+.app-theme {
+  @include angular-material-theme($app-theme);
+  @include component-themes($app-theme);
+}
