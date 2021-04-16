@@ -7,7 +7,7 @@
     "gen-api": "node --no-deprecation ./node_modules/.bin/ng-openapi-gen -i ../api/compiled.yaml -o ./src/app/api --serviceSuffix BackendService --modelSuffix DTO",
     "test-api": "yarn compile-api && dredd ../api/compiled.yaml http://localhost:3000 --loglevel=error",
     "visualize-api": "yarn compile-api && swagger-ui ../api/compiled.yaml", 
-    "dev": "yarn gen-api && ng serve --open --configuration=dev",
+    "dev": "yarn compile-api && yarn gen-api && ng serve --open --configuration=dev",
     "dev-mock": "yarn compile-api && prism mock -d ../api/compiled.yaml & yarn gen-api && ng serve --open --configuration=dev-mock",
     "dev-proxy": "yarn compile-api && prism proxy ../api/compiled.yaml http://localhost:3000 --errors & yarn gen-api && ng serve --open --configuration=dev-mock",
     "build": "yarn compile-api && yarn gen-api && ng build",

@@ -3,7 +3,6 @@ info:
   description: Example API
   version: 1.0.0
   title: Example API
-  termsOfService: 'http://gat.confluence.cgm.ag'
   contact:
     email: markel.tuzinskiy@gmail.com
   license:
