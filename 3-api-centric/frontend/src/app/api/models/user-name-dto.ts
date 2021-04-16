@@ -7,5 +7,4 @@
 export interface UserNameDTO {
   firstName?: string;
   lastName?: string;
-  middleName?: string;
 }

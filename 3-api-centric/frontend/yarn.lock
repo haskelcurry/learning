@@ -6969,10 +6969,9 @@ next-tick@~1.0.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
-ng-openapi-gen@^0.17.0:
+"ng-openapi-gen@github:mtuzinskiy/ng-openapi-gen#media-type-with-charset-build":
   version "0.17.0"
-  resolved "https://registry.yarnpkg.com/ng-openapi-gen/-/ng-openapi-gen-0.17.0.tgz#7c73fabcf511469720503433305f65fc0976e735"
-  integrity sha512-kzQYmFTQVOxGmf5C2upADUdqH9heQzRHdHn63vQ/7aAKLvEaFRk9Y/woBZEVNEruNphtRbwbPf+FJ5s2iLthbA==
+  resolved "https://codeload.github.com/mtuzinskiy/ng-openapi-gen/tar.gz/b74808079d235d3293a98b03d9aca1ba163dca47"
   dependencies:
     "@loopback/openapi-v3-types" "^1.2.1"
     "@types/argparse" "^1.0.38"
