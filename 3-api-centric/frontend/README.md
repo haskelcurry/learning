@@ -1,27 +1,20 @@
 # Frontend
+Run `yarn` to install the dependencies.  
+Commands:  
+`compile-api` -- compile the `../api` files into single `compiled.yaml` file
+`gen-api` -- generate Angular services and models based on API def, place it in `src/app/api`  
+`test-api` -- test the backend API on `localhost:3000` against the API def
+`visualize-api` -- run Swagger UI
+`dev` -- run Angular in dev mode
+`dev-mock` -- run Angular in dev mode + fake data server with Prism
+`dev-proxy` -- run Angular in dev mode + Prism in [proxy mode](https://meta.stoplight.io/docs/prism/docs/guides/03-validation-proxy.md)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
+# Additional notes
+Note that the `ng-openapi-gen` is taken from my fork:
+```
+  "ng-openapi-gen": "github:mtuzinskiy/ng-openapi-gen#media-type-with-charset-build",
+```
+That's because the latest version has one bug that didn't allow me to use NestJS. 
+I submitted the PR, but it's gonna take time for their team to release the new version.  
+In short, just install the latest version on your project, it will work for you as is.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
