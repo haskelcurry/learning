@@ -1,8 +1,8 @@
-// This is called "type manipulation":
+// What we did just now is called "type manipulation":
 https://www.typescriptlang.org/docs/handbook/2/types-from-types.html
 
-// We already saw Generics, 'extends' restriction, keyof, indexed access type
-// Let's proceed exploring the ways of creating types out of existing types:
+// We already saw Generics, 'extends' restriction, keyof, typeof, indexed access types...
+// Let's proceed exploring the ways of creating types out of existing types.
 
 https://www.typescriptlang.org/docs/handbook/2/conditional-types.html
 // (read starting from "For example, let’s take the following createLabel function:")
@@ -58,3 +58,18 @@ function getUserPermission<T extends UserType>(type: T): Permission<T> {
 
 const admin: Admin = {adminId: '1234'};
 const permission = getUserPermission(admin);
+
+// Couple of more neat tricks:
+https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#conditional-type-constraints
+// (proceed to Inferring)
+// "Here, we used the infer keyword....."
+// > Distributive Conditional Types   well, this works the same for union types
+
+// One last cool trick with conditions, and we'll proceed to other kinds of type manipulation:
+function count<T>(list: T extends any[] ? T : 'Only arrays please'): unknown {
+  return list.length;
+}
+count('test')
+
+// I saw this used quite often in the source code of enterprise-grade libraries like NgRx:
+https://github.com/ngrx/platform/blob/7c6d4e4c188ed24fa74e527c6701b2a98913b035/modules/store/src/models.ts#L83

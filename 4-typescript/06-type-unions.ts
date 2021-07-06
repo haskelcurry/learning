@@ -10,10 +10,6 @@ type Animal = Dog | Cat | Bird | Insect;
 // But UNION says: ONE OF THESE types should match.
 // So it's exactly as AND and OR,  hence the symbols  & and |.
 
-// You probably know the unions from Redux with Typescript, 
-// where the Action definition might look like this:
-type Action = OpenPopup | ClosePopup | ReloadPage;
-
 
 // Note that it's absolutely OK to use string literals for typechecking:
 type DogBreed = 'Corgi' | 'Husky';
@@ -21,6 +17,9 @@ type Dog {
   breed: DogBreed;
 }
 
+// You probably know the unions from Redux with Typescript, 
+// where the Action definition might look like this:
+type Action = OpenPopup | ClosePopup | ReloadPage;
 
 // Unions are VERY useful! how exactly?
 // Let's have an example.
@@ -99,3 +98,30 @@ function getArea(shape: Shape) {
 
 https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions
 // Let's talk more about this "narrowing" of the types.  Or also it's called type inference -- the type is inferred from circumstances
+
+// But before that, let's stop on one interesting question:
+// How type unions are practically different from Enums? As they serve the same purpose!
+enum Shape {
+  Circle = 'O',
+  Square = '[]'
+};
+
+type Circle = 'O';
+type Square = '[]';
+type ShapeT = Circle | Square;
+
+let a: Shape;
+
+// enum exists;  type does not.
+// enum has value, but also could be used for typing.
+// types are only for typing.
+// General rule is: prefer to use types, if you need typing.
+// Actually, there are thoughts that it's better not to use enums at all:
+// https://stackoverflow.com/questions/40275832/typescript-has-unions-so-are-enums-redundant
+// https://www.typescriptlang.org/docs/handbook/enums.html
+// " not a type-level extension of JavaScript"
+//
+// https://github.com/rbuckton/proposal-enum
+// (stage 0 in 3 years)
+// Symbols could be used, too, as ES standard:
+// https://www.typescriptlang.org/docs/handbook/symbols.html

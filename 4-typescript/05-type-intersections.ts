@@ -38,6 +38,13 @@ type SquareT = ShapeT & {
 
 // Here's another interesting difference. Interfaces are open-ended.
 // New definitions can be added anywhere because multiple interface declarations with same name in the same declaration space are merged.
+interface A {id: string};
+interface A {name: string};
+
+const a: A = {id: '11', name: 'name'};
+
+type B = {id: string};
+type B = {name: string};
 
 // Let's say I want to add something to existing defition of the Arrays:
 interface Array<T> {
@@ -55,15 +62,28 @@ interface Array<T> {
   flatMap<R>(f: (x: T) => R[]): R[];
 }
 
-if (typeof Array.prototype.flatMap !== 'function') {
-  Array.prototype.flatMap = function (f) { 
-    // Implementation simplified for exposition. 
-    return this.map(f).reduce((xs, ys) => [...xs, ...ys], []);
-  }
-}
+...
 
-// So, interfaces are open-ended, but types are not.
-// You can see again, that interfaces are made with the extensibility / inheritance in mind.
+// And that's how you can augment typings of any 3rd party library that you use.
+//
+// This is actually a feature of TS, called Declaration Merging:
+// https://www.typescriptlang.org/docs/handbook/declaration-merging.html
+//
+// And that's a good point to talk about the declaration files.
+// https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
+// "The most common case for learning how .d.ts files work is that you’re typing an npm package with no types."
+https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html
+// (open node_modules)
+const { resolve } = require('path');
+// refactor-me/@types/node
+https://www.typescriptlang.org/docs/handbook/modules.html
+https://www.typescriptlang.org/docs/handbook/modules.html#code-generation-for-modules
+https://www.typescriptlang.org/docs/handbook/modules.html#working-with-other-javascript-libraries
+
+https://www.typescriptlang.org/docs/handbook/namespaces.html
+https://www.typescriptlang.org/docs/handbook/namespaces.html#splitting-across-files
+// So, you see, the 'global extension' idea is similar to interfaces.
+
 // Most of the time, you DON'T need this tho.
 
 
