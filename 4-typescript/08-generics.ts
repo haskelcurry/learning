@@ -200,3 +200,6 @@ type K = keyof T[keyof T];
 type R1 = T[keyof T];
 type R2 = T[keyof T][K];
 type R3 = Array<T[keyof T][K]>;
+
+
+// 1:50

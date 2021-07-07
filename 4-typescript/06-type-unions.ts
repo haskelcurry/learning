@@ -125,3 +125,7 @@ let a: Shape;
 // (stage 0 in 3 years)
 // Symbols could be used, too, as ES standard:
 // https://www.typescriptlang.org/docs/handbook/symbols.html
+
+
+
+// 1:20

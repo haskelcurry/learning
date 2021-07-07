@@ -1,7 +1,4 @@
-// (go through the example)
-
 // So, here's what we do:
-
 function loadPatientsOfClinic(id) {
   return Promise.resolve([{name: 'John Smith', clinicId: id}]);
 }
@@ -24,3 +21,16 @@ type Patient = {name: string, clinicId: ClinicId};
 function loadPatientsOfClinic(id: ClinicId): Promise<Patient[]> {
   return Promise.resolve([{name: 'John Smith', clinicId: id}]);
 }
+
+
+// BUT, there are benefits of 'any', too
+// (go through the example in the playground)
+//
+//
+//
+// Btw, the Promise<Patient[]> corresponds to type variables from Haskell
+
+
+
+
+// 20min

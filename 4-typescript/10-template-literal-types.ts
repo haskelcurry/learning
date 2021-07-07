@@ -22,3 +22,6 @@ https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html#strin
 
 // And there are even some utility functions:
 https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html#intrinsic-string-manipulation-types
+
+
+// 2:15

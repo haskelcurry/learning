@@ -34,3 +34,6 @@ https://www.typescriptlang.org/docs/handbook/2/narrowing.html#exhaustiveness-che
 // We manipulate the types in a similar way we manipulate variables: declare them, assign them, change them etc.  And sole purpose of this level is to help us, assist us in _catching the errors_ and _documenting our code_.
 //
 // By mastering this level, you can make your code less error-prone, or "typesafe"
+
+
+// 1:30

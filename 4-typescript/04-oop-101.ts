@@ -27,10 +27,9 @@ class Cat extends Animal {
   }
 }
 
-// Now let's write some functions:
-
-function see(what: Animal): void {
-  console.log(`I see the animal with ${what.legs} legs`);
+// Now let's write a function that operates on this class:
+function see(animal: Animal): void {
+  console.log(`I see the animal with ${animal.legs} legs`);
 }
 
 const animal = new Animal(4);
@@ -120,5 +119,10 @@ see(corgi_);
 // Still, you can see that there is more "general" way to define a type.
 
 // So, what exactly is the difference between the 'type' and 'interface'?
-// Conceptual difference is that interface is an OOP concept, while type is as a type in FP
+// Conceptual difference is that interface is an OOP concept, while type is more like in FP
 // Let's have a closer look at the TECHNICAL difference now:
+
+
+
+
+// 40min

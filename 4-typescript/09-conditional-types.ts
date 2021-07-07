@@ -73,3 +73,6 @@ count('test')
 
 // I saw this used quite often in the source code of enterprise-grade libraries like NgRx:
 https://github.com/ngrx/platform/blob/7c6d4e4c188ed24fa74e527c6701b2a98913b035/modules/store/src/models.ts#L83
+
+
+//  2:05

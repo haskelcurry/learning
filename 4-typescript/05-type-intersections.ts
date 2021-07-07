@@ -107,3 +107,7 @@ function getUsers(): Array<UserDTO/*& {selected: boolean}*/> {
 }
 
 // type UserVM = UserDTO & {selected: boolean};
+
+
+
+// 1:00
