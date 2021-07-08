@@ -1,4 +1,5 @@
-// First of all, you can make type aliases for existing types, even primitives, like we did before:
+// First of all, you can make type aliases for existing types, 
+// even primitives, like we did before:
 type ClinicId = string;
 // it's impossible with interfaces:
 interface ClinicId {}
@@ -18,7 +19,8 @@ type User = {name: string};
 
 
 
-// Another technical difference is how members with the same property key are handled when present in both types:
+// Another technical difference is how members with the 
+// same property key are handled when present in both types:
 interface Shape {
   area: number;
 }
@@ -34,10 +36,13 @@ type SquareT = ShapeT & {
   area: string;
 }
 
-// Note that conceptually it's not even inheritance. The types are not as closely dependent in intersations as interfaces in extension, it's in a way _loosely coupled_ type combination.
+// Note that conceptually it's not even inheritance. 
+// The types are not as closely dependent in intersations as interfaces 
+// in extension, it's in a way _loosely coupled_ type combination.
 
 // Here's another interesting difference. Interfaces are open-ended.
-// New definitions can be added anywhere because multiple interface declarations with same name in the same declaration space are merged.
+// New definitions can be added anywhere because multiple interface 
+// declarations with same name in the same declaration space are merged.
 interface A {id: string};
 interface A {name: string};
 
@@ -54,7 +59,8 @@ interface Array<T> {
 [1, 2].slurp(x => x);
 
 // And that's actually how it works in libraries like Lodash and Ramda:
-// There is a lib.d.ts declaration file loaded, which adds stuff on top of existing declarations.
+// There is a lib.d.ts declaration file loaded, which adds stuff on top
+// of existing declarations.
 // Same for the polyfills:
 array-flat-map-polyfill.ts
 
@@ -71,7 +77,8 @@ interface Array<T> {
 //
 // And that's a good point to talk about the declaration files.
 // https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
-// "The most common case for learning how .d.ts files work is that you’re typing an npm package with no types."
+// "The most common case for learning how .d.ts files work is that you’re typing
+// an npm package with no types."
 https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html
 // (open node_modules)
 const { resolve } = require('path');

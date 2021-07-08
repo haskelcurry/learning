@@ -139,7 +139,7 @@ const person: Person = {
   name: 'John',
 };
 const name = getProperty(person, 'name');
-const name = getProperty(person, 'address');
+const name = getProperty(person, 'address'); // try wrong
 
 
 

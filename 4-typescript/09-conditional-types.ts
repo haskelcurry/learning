@@ -65,7 +65,8 @@ https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#conditiona
 // "Here, we used the infer keyword....."
 // > Distributive Conditional Types   well, this works the same for union types
 
-// One last cool trick with conditions, and we'll proceed to other kinds of type manipulation:
+// One last cool trick with conditions, and we'll proceed to other kinds of type 
+// manipulation:
 function count<T>(list: T extends any[] ? T : 'Only arrays please'): unknown {
   return list.length;
 }

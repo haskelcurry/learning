@@ -34,7 +34,8 @@ const legs = dog.getLegs();
 
 // (scroll down Decorators till the end)
 // Decorators are still experimental, but there's already an enhancement awaiting:
-// "However, once decorators are officially adopted as part of the ECMAScript standard these extensions will be proposed for adoption."
+// "However, once decorators are officially adopted as part of the ECMAScript standard 
+// these extensions will be proposed for adoption."
 // https://github.com/rbuckton/reflect-metadata
 // (show example)
 // _in the runtime_

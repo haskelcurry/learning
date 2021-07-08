@@ -6,7 +6,8 @@ function loadPatientsOfClinic(id) {
 // Parameter 'id' implicitly has any type.
 // What does it mean?
 // Well it means that we can write id: any  (well,  and :any too)
-// return null;  id = null;  Inputs and outputs of the function are not typechecked / not validated.
+// return null;  id = null;  Inputs and outputs of the function are 
+// not typechecked / not validated.
 // And that's what we're DOING in TS, right? Making our code typesafe
 // https://en.wikipedia.org/wiki/Type_safety
 // And not like we have it in JS
@@ -14,7 +15,7 @@ function loadPatientsOfClinic(id) {
 
 
 
-// Here's how it could look like:
+// Ok let's refactor it! Here's how it could look like:
 type ClinicId = string;
 type Patient = {name: string, clinicId: ClinicId};
 
@@ -23,12 +24,11 @@ function loadPatientsOfClinic(id: ClinicId): Promise<Patient[]> {
 }
 
 
-// BUT, there are benefits of 'any', too
+// BUT, it's not always bad.. There are benefits of 'any', too
 // (go through the example in the playground)
 //
 //
 //
-// Btw, the Promise<Patient[]> corresponds to type variables from Haskell
 
 
 

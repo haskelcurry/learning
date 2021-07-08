@@ -6,7 +6,9 @@ type Insect = {venomous: boolean};
 
 type Animal = Dog | Cat | Bird | Insect;
 // Note the difference between intersection (&) and union (|)
-// Intersection COMBINES the types, saying like: this large type should "match" ALL of these.
+// Intersection COMBINES the types, saying like: this large type 
+// should "match" ALL of these.
+//
 // But UNION says: ONE OF THESE types should match.
 // So it's exactly as AND and OR,  hence the symbols  & and |.
 
@@ -29,7 +31,8 @@ const form = {
   error: 'Something went wrong!'
 }
 
-// It can be either success or error.  If there's an error,  there can't be any success, right?
+// It can be either success or error.  If there's an error,  
+// there can't be any success, right?
 // How to do it?
 
 type SuccessState = {
@@ -53,7 +56,9 @@ const form: FormState = {
 function submit(form: FormState) {
   from.
 }
-// You see that there's only the "success" prop. Because it's common, and TS can guarantee that it's there in any case -- Typesafety!  preventing errors.  What to do?
+// You see that there's only the "success" prop. 
+// Because it's common, and TS can guarantee that it's there in any case -- Typesafety!  
+// preventing errors.  What to do?
 // We need to _narrow_ the type:
 function submit(form: FormState) {
   if ('error' in form) {
@@ -97,7 +102,8 @@ function getArea(shape: Shape) {
 
 
 https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions
-// Let's talk more about this "narrowing" of the types.  Or also it's called type inference -- the type is inferred from circumstances
+// Let's talk more about this "narrowing" of the types.  
+// Or also it's called type inference -- the type is inferred from circumstances
 
 // But before that, let's stop on one interesting question:
 // How type unions are practically different from Enums? As they serve the same purpose!
