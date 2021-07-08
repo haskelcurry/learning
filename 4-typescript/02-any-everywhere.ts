@@ -1,14 +1,16 @@
 // So, here's what we do:
-function loadPatientsOfClinic(id) {
-  return Promise.resolve([{name: 'John Smith', clinicId: id}]);
+function loadPatientsOfClinic(clinic) {
+  // Some backend request involving this clinic data
+  // fetch(..., {method: 'POST', body: JSON.stringify(clinic)})
+  return Promise.resolve([{name: 'John Smith', clinic}]);
 }
 
-// Parameter 'id' implicitly has any type.
+// Parameter 'clinic' implicitly has any type.
 // What does it mean?
-// Well it means that we can write id: any  (well,  and :any too)
-// return null;  id = null;  Inputs and outputs of the function are 
+// Well it means that we can write 'clinic: any'  (well,  and '}]): any', too)
+// So we could  return null;  pass null;  Inputs and outputs of the function are 
 // not typechecked / not validated.
-// And that's what we're DOING in TS, right? Making our code typesafe
+// But that's what we're DOING in TS, right? Making our code typesafe
 // https://en.wikipedia.org/wiki/Type_safety
 // And not like we have it in JS
 // https://en.wikipedia.org/wiki/Duck_typing
@@ -16,11 +18,11 @@ function loadPatientsOfClinic(id) {
 
 
 // Ok let's refactor it! Here's how it could look like:
-type ClinicId = string;
-type Patient = {name: string, clinicId: ClinicId};
+type Clinic = {id: string, address?: string};
+type Patient = {name: string, clinic: Clinic};
 
-function loadPatientsOfClinic(id: ClinicId): Promise<Patient[]> {
-  return Promise.resolve([{name: 'John Smith', clinicId: id}]);
+function loadPatientsOfClinic(clinic: Clinic): Promise<Patient[]> {
+  return Promise.resolve([{name: 'John Smith', clinic}]);
 }
 
 

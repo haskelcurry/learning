@@ -15,11 +15,12 @@ type Animal = Dog | Cat | Bird | Insect;
 
 // Note that it's absolutely OK to use string literals for typechecking:
 type DogBreed = 'Corgi' | 'Husky';
+// Everyday Types -> Literal Types
 type Dog {
   breed: DogBreed;
 }
 
-// You probably know the unions from Redux with Typescript, 
+// Oh, you probably know the unions from Redux with Typescript, 
 // where the Action definition might look like this:
 type Action = OpenPopup | ClosePopup | ReloadPage;
 
@@ -52,7 +53,16 @@ const form: FormState = {
 };
 
 
-// Ok, now...
+// true and false here are also literal types.
+// To illustrate this more, let's quickly create a 
+// function that accepts either no args or true:
+function onlyTrue(): void;
+function onlyTrue(arg: true): void;
+function onlyTrue(arg?: true): void {
+}
+
+
+// Ok, now... what if we had a function that operates on form state...
 function submit(form: FormState) {
   from.
 }
@@ -131,6 +141,7 @@ let a: Shape;
 // (stage 0 in 3 years)
 // Symbols could be used, too, as ES standard:
 // https://www.typescriptlang.org/docs/handbook/symbols.html
+
 
 
 
