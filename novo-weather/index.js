@@ -1,6 +1,6 @@
 import './style.css';
 
-const apiKey = `4d8fb5b93d4af21d66a2948710284366`;
+const apiKey = ``;
 const button = document.querySelector(`button`);
 const input = document.querySelector(`input`);
 const error = document.querySelector(`.error`);
@@ -24,7 +24,7 @@ button.addEventListener(`click`, (e) => {
           <div class="name">
             ${data.name}, ${data.sys.country}
           </div>
-          <div class="temp">${Math.round(data.main.temp)} ¡C</div>
+          <div class="temp">${Math.round(data.main.temp)} Â¡C</div>
           <img src="${icon}">
           <div class="description">${data.weather[0].description}</div>
         </div>
